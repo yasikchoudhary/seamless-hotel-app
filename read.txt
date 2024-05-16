@@ -1,0 +1,135 @@
+point to point breakdown 
+
+backend : 
+
+1. make a folder mern-booking , build backed folder , use node init 
+2. download modules :
+    express : node framework api framework makes it easy to handle api request.
+    cors : use for security, This allows you to control which external domains can access your API.
+    dotenv : help us load our enviroment 
+    mongodb : helps to interact with our database 
+    mongoose : framework for mongodb
+3. installing dev dependencies
+   @types/cores  @types/express @types/node ts-node(ts node helper) typescript nodemon(start a devl. server automaticlly load)
+4. remove script text add dev : nodemon so it will start our server (when we type npm run dev it will call this scrpit 
+   this going to start a nodemon server for us , then it will look for main and start the app)
+5. make main file index.ts file inside src folder
+
+                                         backup setup done
+
+
+frontend :
+
+npm create vite@latest
+
+project name : vilt-project
+react 
+typescript +  swc (faster)
+
+ cd vite-project
+  npm install    
+  npm run dev   
+
+then we got a link 
+ Local:   http://localhost:5173/
+
+                                    frontend setup done 
+
+
+databse :
+1. go to mongodb.com sign up and create a data abse 
+
+ a. Your current IP address (152.58.78.74) has been added to enable local connectivity.
+ b. username : yasik_choudhary
+ c. pass : Yasik@123
+    encoded pass : Yasik%40123
+
+to connect mongodb from shell: 
+mongosh "mongodb+srv://seamless-hotel-bookingd.u7rygqy.mongodb.net/" --apiVersion 1 --username yasik_choudhary --password Yasik@123
+mongodb+srv://yasik_choudhary:<password>@seamless-hotel-bookingd.u7rygqy.mongodb.net/
+
+to connect through drivers 
+
+1. create a .env file inside backend 
+2. add this in that file 
+MONGOBD_CONNECTION_STRING= mongodb+srv://yasik_choudhary:Yasik@123@seamless-hotel-bookingd.u7rygqy.mongodb.net/?retryWrites=true&w=majority&appName=seamless-hotel-bookingdb
+
+
+                                   database setup completed
+
+1. creating frontend layouts : headers and footers using tailwind css 
+2. used some interface props (while uderstand it later)
+3. login and registration 
+
+
+ how authentication works :
+
+ 1. while user fills qa form it sent post request api ,
+ 2. in backend logic we encrpt password and emails etc and send it to our database 
+ 3. after this we send HTTP cookie with JWt(JSON web token) .. which helps to let brpwser know this person is authenticated 
+   also JWt is not readable by js so it is relaible and can only be read by server 
+  intalll npm i bcryptjs for encryption  process jsonwebtoken for http cookies 
+ 
+ 
+ user registraion
+ 1. /register , then check validation
+ 2. if all good check email is present in db or not 
+ 3. if exist send a res of user already exist
+ 4. if not then save the new user 
+ 5. make a token 
+ 6. send a cookie  
+
+ user login api:
+ 1. /login  , then check validation of email and pass 
+ 2. if all good check email is right or not 
+ 3. if email is right then move to next step if not "something is wrong "
+ 4. check for pass and match user db pass with currenrt pass if match then good else show error
+ 5. make a token
+ 6. send a cookies
+
+
+frontend user registraion form:
+
+after creating a form with help of react form hook now time to link this to our register endpoint
+
+1. Imported RegisterFormData type from "./pages/Register", likely representing form data structure.
+2. Defined API_BASE_URL using Vite's environment variable VITE_API_BASE_URL for API flexibility.
+3. Exported an async function register to handle user registration.
+4. Sent a POST request to the registration endpoint using fetch, including form data as JSON.
+5. Parsed the response body as JSON and checked for successful response status.
+6. Threw an error with the response message if the request was unsuccessful, providing basic error handling.
+
+
+Installing react-query is like getting a super handy tool for managing data in your React app. 
+Imagine you have a bunch of data coming from a server, like user information or posts. 
+React Query helps you fetch that data, keep it updated, and 
+store it in a smart way so your app stays fast and responsive.
+ It's like having a helper that takes care of all the heavy lifting when dealing with server data,
+  making your life as a developer much easier.
+
+
+   APP CONTEXT & TOAST NOTIFICATION
+
+    // app context se link krta register page ko 
+    // iski value gyi appcontext mae 
+    // iski value gyi upar set toast array mae 
+     // iski value gyi sabse niche 
+      // toast ki value true hai toh yeh value lega upar se and send krega toast ko 
+   // appcontext se value lekr print krega 
+
+CHECKING USER LOGIN STATE
+SIGN IN & SIGN OUT 
+Automated tests
+end to end automated test 
+setup test database 
+yasikchoudhary username for test database
+7SgtEEauamU2FAxH password for test database 
+
+Auth test
+npm init playwright@latest
+
+DEPLOYMENT EXPLAINED
+
+
+SETUP GITHUB
+
