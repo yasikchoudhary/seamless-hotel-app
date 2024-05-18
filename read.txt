@@ -132,4 +132,48 @@ DEPLOYMENT EXPLAINED
 
 
 SETUP GITHUB
+: just normall puches our work in github 
 
+   MONGODB security settings : adding different ips in  network 
+   : 35.157.117.28/32 , 3.75.158.163/32  , 3.125.183.140/32
+
+   DEPLOY TO RENDER 
+ GOTO RENDER.COM 
+ sign in :
+
+ name : seamless hotel 
+ loction singapore 
+ branch : main
+ runtime : node
+ build command : cd frontend && npm install && npm run build && cd ../backend && npm run build 
+ start command = cd backend && npm start
+ instance type : free
+ enviroment variable:
+  MONGODB_CONNECTION_STRING= mongodb+srv://yasik_choudhary:Yasik%40123@seamless-hotel-bookingd.u7rygqy.mongodb.net/?retryWrites=true&w=majority&appName=seamless-hotel-bookingdb
+   JWT_SECRET_KEY=  madz52RBbtiVmRgfqGr3zJU71TWtHatC
+NODE_VERSION = 20.11.1
+imp: set ip for mongodb to be access from anywhere 
+
+ADD HOTEL : FEATURE OVERVIEW 
+a. Manage hotel form 
+b. POST/api/my-hotels to 
+c. node backend to 
+d. cloudinary : used to host images to 
+e. return url strings from cloudinary to node 
+f. then node to mongodb
+
+cloudinary SETUP : 
+sign in cloudinary 
+get name : 
+get api key : 
+get api secret: 
+
+CLOUDINARY_CLOUD_NAME=dthviyf5u
+CLOUDINARY_API_KEY=679634287384117
+CLOUDINARY_API_SECRET=Sl-k2IJpJ3Nx-0u7u4u7iNio4RU
+
+add in our backend 
+
+   CFREATE HOTEL API : created a backend schema set for our form 
+
+   CREATE HOTEL FROM IN FRONTEND   
