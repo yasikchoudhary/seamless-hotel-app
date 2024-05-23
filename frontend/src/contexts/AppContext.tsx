@@ -2,6 +2,13 @@ import React, { useContext, useState } from "react";
 import Toast from "../components/Toast";
 import { useQuery } from "react-query";
 import * as apiClient from '../api-client';
+import {loadStripe , Stripe} from '@stripe/stripe-js';
+
+
+const STRIPE_PUB_KEY = import.meta.env.VITE_STRIPE_PUB_KEY || ""
+
+
+
 // This defines a TypeScript type ToastMessage which represents the shape of a toast message object.
 //  It has two properties: message, which is a string representing the message content, and type, 
 //  which is a string literal type specifically constrained to either "SUCCESS" or "ERROR"
@@ -17,6 +24,7 @@ type ToastMessage = {
 type AppContext = {
     showToast : (toastMessage: ToastMessage) => void;
     isLoggedIn: boolean;
+    stripePromise: Promise<Stripe | null>;
 }
 
 // AppContext using the React.createContext function. The generic parameter <AppContext | undefined> 
@@ -24,6 +32,9 @@ type AppContext = {
 // The initial value of the context is undefined.
 
 const AppContext = React.createContext<AppContext | undefined>(undefined);
+
+const stripePromise = loadStripe(STRIPE_PUB_KEY);
+
 
 export const AppContextProvider = ({children} : {children:React.ReactNode})=>{
         
@@ -38,7 +49,8 @@ export const AppContextProvider = ({children} : {children:React.ReactNode})=>{
                setToast(toastMessage);    // iski value gyi upar set toast array mae 
                 
             },
-            isLoggedIn: !isError
+            isLoggedIn: !isError,
+            stripePromise
         }}>
           
           {toast &&(

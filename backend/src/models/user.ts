@@ -1,12 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
-export type Usertype = {           //user schema which tells what properties we will store st goven doc.      
-    _id:string;
-    email: string;
-    password: string;
-    firstName: string;
-    lastname: string;
-};
+import { UserType } from "../shared/types";
+
 
 const userSchema = new mongoose.Schema({
     email:{ type:String , required: true, unique:true},
@@ -24,7 +19,7 @@ userSchema.pre("save",async function (next) {      // {need to be check}
     
 })
 
-const User = mongoose.model<Usertype>("User",userSchema);
+const User = mongoose.model<UserType>("User",userSchema);
 
 export default User;
 
